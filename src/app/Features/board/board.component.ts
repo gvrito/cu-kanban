@@ -1,6 +1,6 @@
 import { CdkDragDrop, moveItemInArray, transferArrayItem } from '@angular/cdk/drag-drop';
-import { Component, OnInit } from '@angular/core';
-import { MatDialog } from '@angular/material/dialog';
+import { Component, Inject, OnInit } from '@angular/core';
+import { MatDialog, MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
 import { ActivatedRoute, Router } from '@angular/router';
 import { BoardService, IBoard, ICard } from '../../Shared/board.service';
 import { NewTaskComponent } from '../dialog/new-task/new-task.component';
@@ -53,8 +53,8 @@ export class BoardComponent implements OnInit {
   }
 
   public removeBoard() {
-    this.boardService.deleteBoard(this.id).subscribe(() => {
-      this.router.navigate(['/dashboard'])
+    this.dialog.open(ConfirmationComponent, {
+      data: this.id
     })
   }
 
@@ -65,6 +65,45 @@ export class BoardComponent implements OnInit {
         title
       }
     });
+  }
+
+}
+
+@Component({
+  template: `
+  <div>
+    <div mat-dialog-title>Are you sure you want to delete this kanban table?</div>
+    <div mat-dialog-actions class="btns">
+      <button mat-raised-button color="primary" (click)="removeBoard()">Yes</button>
+      <button mat-raised-button color="warn" (click)="cancel()">No</button>
+    </div>
+  </div>
+  `,
+  styles: [`
+      .btns {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
+  `]
+})
+export class ConfirmationComponent {
+  constructor(
+    @Inject(MAT_DIALOG_DATA) public id: number,
+    private boardService: BoardService,
+    private router: Router,
+    private dialogRef: MatDialogRef<ConfirmationComponent>
+  ) {}
+
+  removeBoard() {
+    this.boardService.deleteBoard(this.id).subscribe(() => {
+      this.cancel();
+      this.router.navigate(['/dashboard']);
+    })
+  }
+
+  cancel() {
+    this.dialogRef.close();
   }
 
 }

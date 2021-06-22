@@ -5,7 +5,7 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { NavigationComponent } from './Features/navigation/navigation.component';
 import { HeaderComponent } from './Features/header/header.component';
-import { BoardComponent } from './Features/board/board.component';
+import { BoardComponent, ConfirmationComponent } from './Features/board/board.component';
 import { DashboardComponent } from './Features/dashboard/dashboard.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatCardModule } from '@angular/material/card';
@@ -26,7 +26,8 @@ import { NewTaskComponent } from './Features/dialog/new-task/new-task.component'
     BoardComponent,
     DashboardComponent,
     NewKanbanComponent,
-    NewTaskComponent
+    NewTaskComponent,
+    ConfirmationComponent
   ],
   imports: [
     BrowserModule,
