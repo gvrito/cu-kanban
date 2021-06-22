@@ -1,16 +1,21 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
-import { TestComponent } from './Features/test/test.component';
+import { BoardComponent } from './Features/board/board.component';
+import { DashboardComponent } from './Features/dashboard/dashboard.component';
 
 const routes: Routes = [
   {
-    path: '',
-    redirectTo: 'ytmp3',
-    pathMatch: 'full'
+    path: 'board',
+    component: BoardComponent
   },
   {
-    path: 'test',
-    component: TestComponent
+    path: 'dashboard',
+    component: DashboardComponent
+  },
+  {
+    path: '',
+    redirectTo: 'dashboard',
+    pathMatch: 'full'
   },
 ];
 

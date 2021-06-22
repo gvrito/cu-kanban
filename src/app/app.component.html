@@ -2,6 +2,14 @@
   <app-header></app-header>
   <app-navigation>
     <div class="navigation">
+      <button mat-raised-button color="primary" (click)="openModal()">Add Kanban Board</button>
+      <p routerLink="/dashboard">Dashboard</p>
+      <p 
+        *ngFor="let title of titles" 
+        routerLinkActive="active" 
+        (click)="redirect(title.id)">
+        {{ title.title }}
+      </p>
     </div>
   </app-navigation>
   <div class="content">

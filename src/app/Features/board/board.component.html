@@ -1,0 +1,50 @@
+<div class="board drop-list" >
+  <button mat-raised-button color="warn" class="del-btn" (click)="removeBoard()">X</button>
+  <mat-card class="card">
+    <mat-card-header>
+      <mat-card-title>{{ cards[0]?.title }}</mat-card-title>
+    </mat-card-header>
+    <mat-card-content 
+      class="list" 
+      cdkDropList
+      #todoList="cdkDropList"
+      [cdkDropListData]="cards[0].tasks"
+      [cdkDropListConnectedTo]="[doneList]"
+      (cdkDropListDropped)="drop($event)">
+      <mat-card 
+        *ngFor="let task of cards[0]?.tasks" 
+        cdkDrag
+        class="drop-box">
+        <mat-card-content>
+          <p>{{ task }}</p>
+        </mat-card-content>
+      </mat-card>
+    </mat-card-content>
+    <mat-card-actions>
+        <button mat-raised-button color="primary" (click)="openDialog(cards[0].title)">Add</button>
+    </mat-card-actions>
+  </mat-card>
+  <mat-card class="card">
+    <mat-card-header>
+      <mat-card-title>{{ cards[1]?.title }}</mat-card-title>
+    </mat-card-header>
+    <mat-card-content class="list" 
+      cdkDropList
+      #doneList="cdkDropList"
+      [cdkDropListData]="cards[1].tasks"
+      [cdkDropListConnectedTo]="[todoList]"
+      (cdkDropListDropped)="drop($event)">
+      <mat-card 
+        *ngFor="let task of cards[1]?.tasks" 
+        cdkDrag
+        class="drop-box">
+        <mat-card-content>
+          <p>{{ task }}</p>
+        </mat-card-content>
+      </mat-card>
+    </mat-card-content>
+    <mat-card-actions>
+        <button mat-raised-button color="primary" (click)="openDialog(cards[1].title)">Add</button>
+    </mat-card-actions>
+  </mat-card>
+</div>

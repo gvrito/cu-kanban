@@ -2,12 +2,12 @@
   width: 100%;
   display: grid;
   grid-template-columns: 192px auto;
-  grid-template-rows: 1fr 12fr;
   .content {
-    padding: 2% 4%;
+    padding: 2% 2%;
+    width: 100%;
   }
   app-navigation {
-    height: 92vh;
+    height: 90vh;
     box-shadow: 6px 1px 6px 0px rgba(0,0,0,0.2);
     -webkit-box-shadow: 6px 1px 6px 0px rgba(0,0,0,0.2);
     -moz-box-shadow: 6px 1px 6px 0px rgba(0,0,0,0.2);

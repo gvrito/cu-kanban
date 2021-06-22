@@ -1,0 +1,13 @@
+<div [formGroup]="form">
+    <div mat-dialog-title>Create new Kanban Board Task</div>
+    <mat-form-field class="example-full-width" mat-dialog-content>
+      <input matInput placeholder="Text" formControlName="body"/>
+    </mat-form-field>
+    <div mat-dialog-actions>
+      <button mat-raised-button color="primary" (click)="submit()">Add</button>
+      <button mat-raised-button color="warn" (click)="closeDialog()">
+        Close
+      </button>
+    </div>
+  </div>
+  
