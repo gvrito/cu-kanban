@@ -67,6 +67,11 @@ export class BoardComponent implements OnInit {
     });
   }
 
+  public removeTask(id: number, cardId: number) {
+    this.cards[cardId].tasks = (<string[]>this.cards[cardId].tasks).filter((val, ind) => ind != id)
+    this.boardService.putBoard({id: this.id, cards: this.cards}).subscribe((data) => this.getItems());
+  }
+
 }
 
 @Component({

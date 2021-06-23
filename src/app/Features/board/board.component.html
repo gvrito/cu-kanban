@@ -12,11 +12,16 @@
       [cdkDropListConnectedTo]="[doneList]"
       (cdkDropListDropped)="drop($event)">
       <mat-card 
-        *ngFor="let task of cards[0]?.tasks" 
+        *ngFor="let task of cards[0]?.tasks let i = index" 
         cdkDrag
         class="drop-box">
-        <mat-card-content>
-          <p>{{ task }}</p>
+        <mat-card-content class="task-list">
+          <div class="text">
+            <p>{{ task }}</p>
+          </div>
+          <div class="buttons">
+            <button mat-raised-button color="warn" (click)="removeTask(i, 1)">x</button>
+          </div>
         </mat-card-content>
       </mat-card>
     </mat-card-content>
@@ -35,11 +40,16 @@
       [cdkDropListConnectedTo]="[todoList]"
       (cdkDropListDropped)="drop($event)">
       <mat-card 
-        *ngFor="let task of cards[1]?.tasks" 
+        *ngFor="let task of cards[1]?.tasks; let i = index" 
         cdkDrag
         class="drop-box">
-        <mat-card-content>
-          <p>{{ task }}</p>
+        <mat-card-content class="task-list">
+          <div class="text">
+            <p>{{ task }}</p>
+          </div>
+          <div class="buttons">
+            <button mat-raised-button color="warn" (click)="removeTask(i, 1)">x</button>
+          </div>
         </mat-card-content>
       </mat-card>
     </mat-card-content>
