@@ -77,7 +77,7 @@ export class BoardComponent implements OnInit {
 @Component({
   template: `
   <div>
-    <div mat-dialog-title>Are you sure you want to delete this kanban table?</div>
+    <div mat-dialog-title>Are you sure you want to delete this kanban board?</div>
     <div mat-dialog-actions class="btns">
       <button mat-raised-button color="primary" (click)="removeBoard()">Yes</button>
       <button mat-raised-button color="warn" (click)="cancel()">No</button>
