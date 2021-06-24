@@ -4,7 +4,6 @@ import { NgModule } from '@angular/core';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { NavigationComponent } from './Features/navigation/navigation.component';
-import { HeaderComponent } from './Features/header/header.component';
 import { BoardComponent, ConfirmationComponent } from './Features/board/board.component';
 import { DashboardComponent } from './Features/dashboard/dashboard.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
@@ -22,7 +21,6 @@ import { NewTaskComponent } from './Features/dialog/new-task/new-task.component'
   declarations: [
     AppComponent,
     NavigationComponent,
-    HeaderComponent,
     BoardComponent,
     DashboardComponent,
     NewKanbanComponent,
